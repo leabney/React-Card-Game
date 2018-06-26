@@ -10,7 +10,7 @@ import cards from "./cards.json";
 let currentScore = 0;
 let bestScore = 0;
 let clickMessage = "Click on a card to earn points, but don't click on any card more than once!";
-
+cards.sort(function(a, b){return 0.5 - Math.random()});
 
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
 
       // Make a copy of the state cards array to work with
       const cards = this.state.cards;
-
+     
       // Filter for the clicked card
       const clickedCard = cards.filter(card => card.id === id);
 
@@ -79,6 +79,7 @@ class App extends Component {
       return (
         
              <Wrapper>
+                 
               <NavBar  currentScore={this.state.currentScore}
                        bestScore={this.state.bestScore}/>
               <Jumbotron clickMessage={this.state.clickMessage}/>                         
